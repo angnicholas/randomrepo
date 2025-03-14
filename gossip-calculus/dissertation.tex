@@ -1,0 +1,105 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage{url}       % for typesetting URLs
+\usepackage{graphicx}  % for including images
+\usepackage{fancyhdr}  % for tweaking the running header/footer lines
+\usepackage{algpseudocode}	% algorithms
+\usepackage{algorithm}
+\usepackage[
+backend=biber,
+style=numeric,
+sorting=none
+]{biblatex}
+\addbibresource{references.bib}
+% Define \LeftComment which will not right-justify comment
+\algnewcommand{\LeftComment}[1]{\Statex \(\triangleright\) #1} 
+
+
+\begin{document}
+\title{Gossip Calculus - A Work in Progress}
+\author{Nicholas Ang}
+\maketitle
+
+TODO: figure out the formatting 
+
+Get rid of the indent and make it such that an enter actually makes a gap
+
+Take the neurips template or sth
+
+\section{Motivation}
+I want to model the way knowledge is transferred in gossip-style conversations.
+
+A minimal example. If I (Alice) told you (Bob) that Charlie is attached to Deborah, you (Bob) now know that Charlie is attached to Deborah but you also know that I (Alice) know that Charlie is attached to Deborah.
+
+\subsection{Uses}
+It may be the case that the exact inference rules of the calculus may differ depending on our objective
+
+\begin{itemize}
+\item Minimal approximation: When is it safe for me to talk about something (which could otherwise constitute privileged information) to someone? - if I know that the person has the information
+
+\item Maximal approximation: If I have a secret (eg about myself), and I want to know the maximum set of people who could potentially already know about this
+
+\end{itemize}
+
+\section{Preliminaries}
+
+\begin{enumerate}
+\item \textbf{For now, we assume that no one is lying.} If a liar tells me X I basically haven't gained much... apart from the fact that I can prove the liar knows X if I knew X is true from a trusted source. In the future, we could potentially extend the calculus further to have sets of people who tell the truth and sets of people who might lie, (maybe even with probabilities),
+
+\item We assume that there is a \textbf{global continuous time that moves forward in one direction}, although people might refer to events with certain \textbf{intervals} of that timeline (eg. I know about event X, but event X could have happened at any time between $(-\infty, t_2]$),
+
+\item We \textbf{don't care about epistemological issues}, or the JTB definition of knowledge (eg. if I know X, do I know that I know X???) Our model of Alice's knowledge will just be a box called Alice, and inside is a whole bunch of facts / propositions, and if Alice tells Bob something then Bob adds a bunch of propositions into his box, etc.,
+
+\item Generally we will use letters earlier in the alphabet for people and letters later in the alphabet for events / facts,
+
+\item If the parentheses don't make sense at any point, try to read them as Mathematical parentheses rather than English parentheses. 
+
+
+\end{enumerate}
+
+\section{Some Principles that the Calculus Must Obey}
+
+\subsection{Conversation Builds an Infinite Knowledge Chain}
+When A tells B something, eg X, 
+
+A must know X $X \in A$ \\
+
+Now B knows X $X \in B$ \\
+
+But A also knows that B knows X, cos she told him: $(X \in B) \in A$ \\
+
+And B knows that A knows X, if not how would she have told him: $(X \in A) \in B$ \\
+
+And B, being a rational agent, can deduce the previous fact, so $((X \in B) \in A) \in B$. \\
+
+Etc... \\
+
+Definition 1 (figure out how to Latex the definitions later) \\
+
+Therefore, we can define the infinite series $A \rightarrow^X B = X \in A \wedge X \in B \wedge (X \in B) \in A ...$ \\
+
+which arises when someone tells someone something \\
+
+
+
+\subsection{Timestamps are wildin}
+Time isn't actually very intuitive
+
+Eg. If I told you: "Eve is attached" at time $t_2$. I don't actually mean that Eve is attached when the universe began, now, and forever, what I probably meant to say is at some time $t_1 < t_2$, Eve was attached. Obviously, $t_1$ shouldn't be that far from $t_2$. But also, it could be anytime. 
+
+But let's say Eve told me at time $t_1$ that she was attached to Felix at $t_1$, and I told you at $t_2$ that Eve is attached. We have different types of knowledge.
+
+I have (Eve is attached)$_{t_1}$. You have (Eve is attached)$_{t'}$ for some $t' < t_2$. Which is fundamentally a different proposition.
+
+
+And now the chains are going to behave differently because of the timestamps
+
+So I gotta work this one out
+
+
+And  this formatting is killing me someone please open a PR to fix it
+
+
+% specify page dimensions
+	
+\end{document}
+
