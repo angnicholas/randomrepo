@@ -1,0 +1,12 @@
+[project]
+name = "mypackage"
+version = "0.1.0"
+dependencies = []
+
+[tool.setuptools]
+packages = ["mypackage"]
+
+[tool.pytest.ini_options]
+pythonpath = [
+  ".",
+]
