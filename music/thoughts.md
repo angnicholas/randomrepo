@@ -1,0 +1,2 @@
+1. The dim7 can almost be used for anything anywhere
+2. The difference between the 3-3-2 division of time (c.f. "when can i see you again", "we are young") and a triplet is 3/8 - 1 /3 = 1/24, which is kinda small if you think about it (kinda hitting the error of equal temperament differences (?)) but yet the difference is a lot more obvious than subtle differences in pitch. This might suggest a human sensitivity to small changes in rhythm (cycles per second, PER second) than small changes in pitch (cycles per second). Which checks out evolutionarily, I suppose.
